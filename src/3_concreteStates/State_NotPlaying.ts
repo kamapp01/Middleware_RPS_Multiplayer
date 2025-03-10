@@ -1,5 +1,5 @@
 import {AState} from "../2_state/AState.js";
-import {State_PlayStarted} from "./State_PlayStarted.js";
+import {State_Registration} from "./State_Registration.js";
 
 class State_NotPlaying extends AState{
 
@@ -12,11 +12,11 @@ class State_NotPlaying extends AState{
         }
 
         // sets two states variables
-        this.context.player_registered = true;
-        this.context.player_name = { name: playerName };
+        this.context.player1_registered = true;
+        this.context.player1_name = { name: playerName };
 
-        this.context.transitionTo(new State_PlayStarted());
-        return response.status(200).json({message: `Have a nice game, ${playerName}!`});
+        this.context.transitionTo(new State_Registration());
+        return response.status(200).json({message: `Have a nice game, ${playerName}! [Player 1]`});
     }
 
     public playGame(request: any, response: any): any {

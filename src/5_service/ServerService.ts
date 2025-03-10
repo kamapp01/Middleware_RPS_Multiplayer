@@ -3,26 +3,20 @@ import {ResultType} from "../4_models/enums/EResult.js";
 
 class ServerService{
 
-    public static getServerChoice():Hand{
-        const enumValues = Object.values(Hand);
-        const randomIndex = Math.floor(Math.random() * enumValues.length);
-        return enumValues[randomIndex];
-    }
+    public static checkWinner(player1_choice:string, player2_choice:string):ResultType{
 
-    public static checkWinner(clientChoice:string, serverChoice:string):ResultType{
-
-        if(clientChoice === serverChoice){
+        if(player1_choice === player2_choice){
             return ResultType.Draw;
         }
         else{
 
-            if(clientChoice === Hand.Rock && serverChoice === Hand.Scissors){
+            if(player1_choice === Hand.Rock && player2_choice === Hand.Scissors){
                 return ResultType.Win;
             }
-            else if (clientChoice === Hand.Paper && serverChoice === Hand.Rock){
+            else if (player1_choice === Hand.Paper && player2_choice === Hand.Rock){
                 return ResultType.Win;
             }
-            else if (clientChoice === Hand.Scissors && serverChoice === Hand.Paper){
+            else if (player1_choice === Hand.Scissors && player2_choice === Hand.Paper){
                 return ResultType.Win;
             }
             else {

@@ -7,16 +7,20 @@ import {GameStatus} from "../4_models/GameStatus.js";
 class GameContext {
 
     // state variables
-    public player_registered:boolean;
-    public player_name:IPlayer;
-    public player_hand:Hand;
-    public computer_hand:Hand;
-    public gameStatus:GameStatus;
+    public player1_registered:boolean;
+    public player1_name:IPlayer;
+    public player1_hand:Hand;
+    public gameStatus_player1:GameStatus;
+
+    public player2_registered:boolean;
+    public player2_name:IPlayer;
+    public player2_hand:Hand;
+    public gameStatus_player2:GameStatus;
+
 
     private state:AState;
 
     constructor(state:AState) {
-        this.gameStatus = new GameStatus();
         this.transitionTo(state);
     }
 
@@ -45,11 +49,15 @@ class GameContext {
     }
 
     public reset(): void{
-        this.player_registered = false;
-        this.player_name = null;
-        this.player_hand = null;
-        this.computer_hand = null;
-        this.gameStatus = new GameStatus();
+        this.player1_registered = false;
+        this.player1_name = null;
+        this.player1_hand = null;
+        this.gameStatus_player1 = new GameStatus();
+
+        this.player2_registered = false;
+        this.player2_name = null;
+        this.player2_hand = null;
+        this.gameStatus_player2 = new GameStatus();
     }
 
 }
