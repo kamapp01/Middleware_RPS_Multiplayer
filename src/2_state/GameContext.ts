@@ -37,6 +37,9 @@ class GameContext {
     }
 
     public playGame(request:any, response:any){
+
+        console.dir(this.state);
+
         this.state.playGame(request, response);
     }
 
