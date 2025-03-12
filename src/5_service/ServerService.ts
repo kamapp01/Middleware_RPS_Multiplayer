@@ -3,6 +3,12 @@ import {ResultType} from "../4_models/enums/EResult.js";
 
 class ServerService{
 
+    /**
+     * This method determines the winner of a rock-paper-scissors round based on player choices.
+     * @param player1_choice - The choice made by Player 1 (rock, paper, or scissors)
+     * @param player2_choice - The choice made by Player 2 (rock, paper, or scissors)
+     * @returns A ResultType indicating whether Player 1 won, lost, or if the round was a draw
+     */
     public static checkWinner(player1_choice:string, player2_choice:string):ResultType{
 
         if(player1_choice === player2_choice){
@@ -25,27 +31,6 @@ class ServerService{
         }
     }
 
-    /*
-    checkWinner(clientChoice: string, serverChoice: string): string {
-        if (clientChoice === serverChoice) {
-            return ResultType.Draw;
-        }
-
-        // Objekt der definerer, hvad der vinder mod hvad
-        const winConditions = {
-            [Hand.Rock]: Hand.Scissors,
-            [Hand.Paper]: Hand.Rock,
-            [Hand.Scissors]: Hand.Paper,
-        };
-
-        // Hvis serverens valg er noget, klientens valg slår, så klienten vinder
-        if (winConditions[clientChoice] === serverChoice) {
-            return ResultType.Win;
-        }
-
-        return ResultType.Loss;
-    }
-    */
 
 }
 export { ServerService };
